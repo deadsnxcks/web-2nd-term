@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Самые прослушиваемые песни в Spotify</a>
+            <br>
+            <a href="forms.html">Список самых прослушиваемых песен в Spotify</a>
+            <hr>
+        </header>
+        <main>
+            <details>
+                <summary><strong>График</strong></summary>
+                <form>
+
+                    <h4>Значение по оси OX</h4>
+                    <input type="radio" id="genre" name="oxAxis">
+                    <label for="genre">Жанр</label><br>
+                    <input type="radio" id="country" name="oxAxis">
+                    <label for="country">Страна</label><br>
+                    <input type="radio" id="date" name="oxAxis">
+                    <label for="date">Год</label><br>
+
+                    <h4>Результат</h4>
+                    <input type="checkbox" id="max">
+                    <label for="max">Максимальное кол-во прослушиваний</label>
+                    <br>
+                    <input type="checkbox" id="min">
+                    <label for="min">Минимальное кол-во прослушиваний</label>
+                    <br>
+                    <input type="checkbox" id="count">
+                    <label for="count">Количество треков</label>
+                    <br>
+        
+                    <input type="button" value="Построить">
+                </form><br>
+            </details>
+
+            <details>
+                <summary><strong>Фильтр</strong></summary>
+                <form id="filter">
+                    <p>
+                        <label for="titleFilter">Название:</label>
+                        <input type="text" id="titleFilter">
+                    </p>
+
+                    <p>
+                        <label for="authorFilter">Автор:</label>
+                        <input type="text" id="authorFilter">
+                    </p>
+
+                    <p>
+                        <label for="genreFilter">Жанр:</label>
+                        <input type="text" id="genreFilter">
+                    </p>
+
+                    <p>
+                        <label for="countryFilter">Страна:</label>
+                        <input type="text" id="countryFilter">
+                    </p>
+
+                    <p>
+                        <label for="streamsFrom">Кол-во стримов: от 
+                            <input type="number" id="streamsFrom" step="0.001" placeholder="0.000">
+                        </label>
+                        <label for="streamsTo"> до 
+                            <input type="number" id="streamsTo" step="0.001" placeholder="0.000">
+                        </label>
+                    </p>
+
+                    <p>
+                        <label for="yearFrom">Год релиза: от <input type="number" id="yearFrom"></label>
+                        <label for="yearTo"> до <input type="number" id="yearTo"></label>
+                    </p>
+                    <input type="button" id="search" value="Найти">
+                    <input type="button" id="clearFilter" value="Сбросить фильтр">
+                </form><br>
+            </details>
+
+            <details>
+                <summary><strong>Сортировка</strong></summary>
+                <form id="sort">
+                    <p>
+                        Первый уровень: 
+                        <select id="fieldsFirst">
+                        </select>
+                        <label for="fieldsFirstDesc">по убыванию?</label>
+                        <input type="checkbox" id="fieldsFirstDesc">
+                    </p>
+                    <p>
+                        Второй уровень: 
+                        <select id="fieldsSecond">
+                        </select>
+                        <label for="fieldsSecondDesc">по убыванию?</label>
+                        <input type="checkbox" id="fieldsSecondDesc">
+                    </p>
+                    <p>
+                        Третий уровень: 
+                        <select id="fieldsThird">
+                        </select>
+                        <label for="fieldsThirdDesc">по убыванию?</label>
+                        <input type="checkbox" id="fieldsThirdDesc">
+                    </p>
+                    <input type="button" id="sortBtn" value="Сортировать"> 
+                    <input type="button" id="resetSortBtn" value="Сбросить сортировку">
+                </form>
+            </details><br>
+
+            <table id="list">
+            </table>
+        </main>
+        <footer>
+            <hr>    
+            <p>Б9123-09.03.04 Ковалёв И.А.</p>
+        </footer>
+    </body>
+
+    <script src="JavaScript/data.js"></script>
+    <script src="JavaScript/table.js"></script>
+    <script src="JavaScript/filter.js"></script>
+    <script src="JavaScript/sort.js"></script>
+    <script src="JavaScript/main.js"></script>
+</html> 
