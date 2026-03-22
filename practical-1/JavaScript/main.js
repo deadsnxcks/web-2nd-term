@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.getElementById('search').addEventListener('click', function() {
     filterTable(songs, 'list', document.getElementById('filter'));
-    resetSort('list', document.getElementById('sort'));
     console.log('click');
 });
 
@@ -69,7 +68,10 @@ const setSortSelects = (data, dataForm) => {
     for(const item of dataForm.elements){
         // формируем очередной SELECT
         setSortSelect(head, item);
-		
+        
+        for (let i = 1; i < allSelect.length; i++) {
+            allSelect[i].disabled = true;   
+        }
         // САМОСТОЯТЕЛЬНО все SELECT, кроме первого, сделать неизменяемым
     }
 }

@@ -1,6 +1,6 @@
 const createTable = (data, idTable) => {
     const table = document.getElementById(idTable);
-    const header = Object.keys(data[0]);
+    const header = Object.keys(songs[0]);
     /* создание шапки таблицы */
     const headerRow = createHeaderRow(header);
     table.append(headerRow);

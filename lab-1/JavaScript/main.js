@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.getElementById('search').addEventListener('click', function() {
     filterTable(buildings, 'list', document.getElementById('filter'));
-    resetSort('list', document.getElementById('sort'));
     console.log('click');
 });
 
@@ -15,8 +14,10 @@ document.getElementById('reset').addEventListener('click', function() {
     console.log('click');
 });
 
+const fieldsFirst = document.getElementById('fieldsFirst');
+
 document.getElementById('fieldsFirst').addEventListener('change', function(event) {
-    changeNextSelect(event.target, 'fieldsSecond');
+    changeNextSelect(fieldsFirst, 'fieldsSecond');
 });
 
 document.getElementById('sortBtn').addEventListener('click', function() {
@@ -65,6 +66,10 @@ const setSortSelects = (data, dataForm) => {
         setSortSelect(head, item);
 		
         // САМОСТОЯТЕЛЬНО все SELECT, кроме первого, сделать неизменяемым
+    }
+
+    for (let i = 1; i < allSelect.length; i++) {
+        allSelect[i].disabled = true;   
     }
 }
 

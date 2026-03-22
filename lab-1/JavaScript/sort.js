@@ -52,17 +52,20 @@ const sortTable = (idTable, formData) => {
             const firstCell = first.cells[column].innerHTML;
             const secondCell = second.cells[column].innerHTML;
 
-            // используем localeCompare для корректного сравнения
-            if (typeof firstCell === 'number' && typeof secondCell === 'number') {
-                console.log(firstCell, secondCell);
-                return direction ? secondCell - firstCell : firstCell - secondCell;
-            }
-                
-            const comparison = firstCell.localeCompare(secondCell);
+            const isNumericColumn = (column === 4 || column === 5);
 
-            // учитываем направление сортировки
-            if (comparison !== 0) {
-                return (direction ? -comparison : comparison);
+            if (isNumericColumn) {
+                const n1 = parseFloat(firstCell);
+                const n2 = parseFloat(secondCell);
+            
+                if (n1 !== n2) {
+                    return direction ? n2 - n1 : n1 - n2;
+                }
+            } else {
+                const comparison = firstCell.localeCompare(secondCell);
+                if (comparison !== 0) {
+                    return direction ? - comparison : comparison;
+                }
             }
         }
         return 0; 
@@ -87,6 +90,10 @@ const resetSort = (idTable, formData) => {
         }   
     }
 
-    clearTable(idTable);
-    createTable(buildings, idTable); 
+    allSelect = formData.getElementsByTagName('select');
+    for (let i = 1; i < allSelect.length; i++) {
+        allSelect[i].disabled = true;   
+    }
+
+    clearFilter(buildings, idTable, document.getElementById('filter'));
 }
