@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title> Трансформация и анимация</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="http://d3js.org/d3.v7.min.js"> </script>
+    <script src="JavaScript/main.js" defer></script>
+    <script src="JavaScript/image.js" defer></script>
+    <script src="JavaScript/path.js" defer></script>
+  </head>
+  <body>   
+    <form id="setting">
+        <p id="cord">Координаты рисунка<br>
+            <label for="cx">x: </label>
+            <input type="number" id="cx" value="300" max="600" min="0" step="10">
+            <label for="cx_finish">до
+                    <input type="number" id="cx_finish" value="550" max="600" min="0" step="10"><br>
+            </label>    
+
+            <label for="cy">y: </label>
+            <input type="number" id="cy" value="300" max="600" min="0" step="10">
+            <label for="cy_finish">до
+                <input type="number" id="cy_finish" value="550" max="600" min="0" step="10">
+            </label>
+        </p>
+        <p id="arc">Пути перемещения<br>
+            <select id="arcType">
+                <option value="G">Буквой Г</option>
+                <option value="circle">По кругу</option>
+            </select>
+        </p>
+        <p id="scale">Масштаб<br>
+            <label for="scaleX">по x:</label>
+            <input type="number" id="scaleX" value="1" max="2" min="0.5" step="0.1">
+            <label for="scaleX_finish">до
+                <input type="number" id="scaleX_finish" value="1.5" max="2" min="0.5" step="0.1">
+            </label><br>
+
+            <label for="scaleY">по y:</label>
+            <input type="number" id="scaleY" value="1" max="2" min="0.5" step="0.1">
+            <label for="scaleY_finish">до
+                <input type="number" id="scaleY_finish" value="1.5" max="2" min="0.5" step="0.1">    
+            </label>
+        </p>
+        <p id="rotate">Поворот<br>
+            <label for="angle">угол:</label>
+            <input type="number" id="angle" value="0" max="360" min="0" step="10">
+            <label for="angle_finish">до
+                <input type="number" id="angle_finish" value="180" max="360" min="0" step="10">
+            </label>        
+        </p>
+        <p>
+            <input type="button" id="drawButton" value="Нарисовать">
+            <input type="button" id="clearButton" value="Очистить">
+        </p>
+        <p>
+            <input type="checkbox" id="animate" value="0" max="360" min="0">
+            <label for="animate">Включить анимацию?</label>
+            <select id="animateType">
+                <option value="linear">linear</option>
+                <option value="elastic">elastic</option>
+                <option value="bounce">bounce</option>
+            </select>
+        </p>
+        <p>
+            <input type="checkbox" id="arcCheckbox" value="0" max="360" min="0">
+            <label for="arcCheckbox">Перемещение вдоль дуги?</label>
+        </p>
+        <input type="button" id="animateButton" value="Анимировать">
+    </form>
+    <svg></svg>
+
+  </body>
+</html>

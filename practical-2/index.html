@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Практическая 2</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="http://d3js.org/d3.v7.min.js"> </script>
+    <script src="JavaScript/main.js" defer></script>
+    <script src="JavaScript/image.js" defer></script>
+    <script src="JavaScript/path.js" defer></script>
+  </head>
+  <body>   
+    <form id="setting">
+        <p id="scale">Масштаб<br>
+            <label for="scaleX">по x:</label>
+            <input type="number" id="scaleX" value="1" max="2" min="0.5" step="0.1">
+            <label for="scaleX_finish">до
+                <input type="number" id="scaleX_finish" value="1.5" max="2" min="0.5" step="0.1">
+            </label><br>
+
+            <label for="scaleY">по y:</label>
+            <input type="number" id="scaleY" value="1" max="2" min="0.5" step="0.1">
+            <label for="scaleY_finish">до
+                <input type="number" id="scaleY_finish" value="1.5" max="2" min="0.5" step="0.1">    
+            </label>
+        </p>
+        <p id="rotate">Поворот<br>
+            <label for="angle">угол:</label>
+            <input type="number" id="angle" value="0" max="360" min="0" step="10">
+            <label for="angle_finish">до
+                <input type="number" id="angle_finish" value="180" max="360" min="0" step="10">
+            </label>        
+        </p>
+        <p>Скорость анимации
+            <input type="number" id="duration" value="6000" max="10000" min="1000" step="500">
+        </p>
+        <p>Тип анимации
+            <select id="animateType">
+                <option value="linear">linear</option>
+                <option value="elastic">elastic</option>
+                <option value="bounce">bounce</option>
+            </select>
+        </p>
+        <p>Использовать эффекты?
+            <input type="checkbox" id="effectsCheckbox" value="0">
+        </p>
+        <p>
+            <input type="button" id="animateButton" value="Анимировать">
+            <input type="button" id="clearButton" value="Очистить">
+        </p>
+    </form>
+    <svg></svg>
+
+  </body>
+</html>
