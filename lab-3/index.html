@@ -11,7 +11,38 @@
 </head>
 <body>   
     <h3>Список самых высоких зданий</h3>
+    <form id="graphForm">
+      <p style="margin-bottom: 5px;">Значение по оси ОХ</p>
+      <input type="radio" id="oxCountry" name="xAxis" value="Страна" checked>
+      <label for="oxCountry">Страна</label><br>
+      
+      <input type="radio" id="oxYear" name="xAxis" value="Год">
+      <label for="oxYear">Год</label>
+ 
+      <p style="margin-bottom: 5px; margin-top: 15px;">Значение по оси ОУ</p>
+      <input type="checkbox" id="oyMax" name="yAxis" value="max" checked>
+      <label for="oyMax">Максимальная высота</label><br>
+      
+      <input type="checkbox" id="oyMin" name="yAxis" value="min">
+      <label for="oyMin">Минимальная высота</label><br>
+        
+      <span id="yAxisError" style="color: red; display: none; font-size: 0.9em;">
+          Ошибка: выберите хотя бы одно значение по оси ОУ!
+      </span>
+        
+      <div style="margin-top: 15px; margin-bottom: 15px;">
+          <label for="chartType">Тип графика</label>
+          <select id="chartType" name="chartType">
+              <option value="scatter">Точечная диаграмма</option>
+              <option value="bar">Гистограмма</option>
+          </select>
+      </div>
+
+      <input type="button" id="buildGraphBtn" value="Построить">
+    </form>
+
     <svg></svg><br>
+    
     <input type="button" id="tableShower" value="Показать таблицу">
     <table id="build"> 
     </table>
