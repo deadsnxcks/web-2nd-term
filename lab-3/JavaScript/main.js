@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const buildGraphBtn = d3.select("#buildGraphBtn");
     const errorSpan = d3.select("#yAxisError");
 
+    d3.select("#oyMax").on("change", function() {
+        errorSpan.style("display", "none"); 
+    });
+    
+    d3.select("#oyMin").on("change", function() {
+        errorSpan.style("display", "none"); 
+    });
+
     buildGraphBtn.on("click", function() {
 
         const xAxisOption = d3.select('input[name="xAxis"]:checked').property("value");

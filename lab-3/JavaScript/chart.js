@@ -79,22 +79,21 @@ function createAxis(svg, data, attr_area, mode){
 }
 
 function createChart(svg, data, scaleX, scaleY, attr_area, mode) {
-    const r = 4
     
     // Рисуем точки
     const points = [];
     data.forEach(d => {
         if (mode === 'min' || mode === 'both') 
-            points.push({x: d.labelX, y: d.values[0], color: "blue"});
+            points.push({x: d.labelX, y: d.values[0], color: "blue", type: "min"});
         if (mode === 'max' || mode === 'both') 
-            points.push({x: d.labelX, y: d.values[1], color: "red"});
+            points.push({x: d.labelX, y: d.values[1], color: "red", type: "max"});
     });
 
     svg.selectAll(".dot")
         .data(points)
         .enter()
         .append("circle")
-        .attr("r", r)
+        .attr("r", d => d.type === 'max' ? 4 : 7)
         .attr("cx", d => scaleX(d.x) + scaleX.bandwidth() / 2)
         .attr("cy", d => scaleY(d.y))
         .attr("transform", `translate(${attr_area.marginX}, ${attr_area.marginY})`)
