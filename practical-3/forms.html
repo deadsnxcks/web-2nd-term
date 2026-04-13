@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Практическая 3</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="JavaScript/chart.js"></script>
+        <script src="http://d3js.org/d3.v7.min.js"> </script>
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Самые прослушиваемые песни в Spotify</a>
+            <br>
+            <a href="forms.html">Список самых прослушиваемых песен в Spotify</a>
+            <hr>
+        </header>
+        <main>
+            <details>
+                <summary><strong>Настройки графика</strong></summary>
+                <form id="graphForm">
+                    <h4>Значение по оси OX</h4>
+                    <input type="radio" id="oxGenre" name="oxAxis" value="Жанр" checked>
+                    <label for="oxGenre">Жанр</label><br>
+                    <input type="radio" id="oxCountry" name="oxAxis" value="Страна">
+                    <label for="oxCountry">Страна</label><br>
+                    <input type="radio" id="oxDate" name="oxAxis" value="Год">
+                    <label for="oxDate">Год</label><br>
+
+                    <h4>Результат (Ось OY)</h4>
+                    <input type="checkbox" id="oyMax" value="max" checked>
+                    <label for="oyMax">Максимальное кол-во прослушиваний</label><br>
+                    <input type="checkbox" id="oyMin" value="min">
+                    <label for="oyMin">Минимальное кол-во прослушиваний</label><br>
+                    <input type="checkbox" id="oyCount" value="count">
+                    <label for="oyCount">Количество треков</label><br>
+                    
+                    <span id="yError" style="color: red; display: none; font-size: 0.9em;">
+                        Ошибка: выберите хотя бы одно значение!
+                    </span>
+
+                    <h4>Тип графика</h4>
+                    <select id="chartType">
+                        <option value="scatter">Точечная диаграмма</option>
+                        <option value="line">График (Линии)</option>
+                        <option value="bar">Столбчатая диаграмма</option>
+                    </select><br><br>
+
+                    <input type="button" id="buildBtn" value="Построить">
+                </form>
+                <br>
+                <svg id="chartSvg" width="800" height="500" style="background-color: #f9f9f9; border: 1px solid #ccc; display: none;"></svg>
+            </details>
+            <details>
+                <summary><strong>Фильтр</strong></summary>
+                <form id="filter">
+                    <p>
+                        <label for="titleFilter">Название:</label>
+                        <input type="text" id="titleFilter">
+                    </p>
+
+                    <p>
+                        <label for="authorFilter">Автор:</label>
+                        <input type="text" id="authorFilter">
+                    </p>
+
+                    <p>
+                        <label for="genreFilter">Жанр:</label>
+                        <input type="text" id="genreFilter">
+                    </p>
+
+                    <p>
+                        <label for="countryFilter">Страна:</label>
+                        <input type="text" id="countryFilter">
+                    </p>
+
+                    <p>
+                        <label for="streamsFrom">Кол-во стримов: от 
+                            <input type="number" id="streamsFrom" step="0.001" placeholder="0.000">
+                        </label>
+                        <label for="streamsTo"> до 
+                            <input type="number" id="streamsTo" step="0.001" placeholder="0.000">
+                        </label>
+                    </p>
+
+                    <p>
+                        <label for="yearFrom">Год релиза: от <input type="number" id="yearFrom"></label>
+                        <label for="yearTo"> до <input type="number" id="yearTo"></label>
+                    </p>
+                    <input type="button" id="search" value="Найти">
+                    <input type="button" id="clearFilter" value="Сбросить фильтр">
+                </form><br>
+            </details>
+
+            <details>
+                <summary><strong>Сортировка</strong></summary>
+                <form id="sort">
+                    <p>
+                        Первый уровень: 
+                        <select id="fieldsFirst">
+                        </select>
+                        <label for="fieldsFirstDesc">по убыванию?</label>
+                        <input type="checkbox" id="fieldsFirstDesc">
+                    </p>
+                    <p>
+                        Второй уровень: 
+                        <select id="fieldsSecond">
+                        </select>
+                        <label for="fieldsSecondDesc">по убыванию?</label>
+                        <input type="checkbox" id="fieldsSecondDesc">
+                    </p>
+                    <p>
+                        Третий уровень: 
+                        <select id="fieldsThird">
+                        </select>
+                        <label for="fieldsThirdDesc">по убыванию?</label>
+                        <input type="checkbox" id="fieldsThirdDesc">
+                    </p>
+                    <input type="button" id="sortBtn" value="Сортировать"> 
+                    <input type="button" id="resetSortBtn" value="Сбросить сортировку">
+                </form>
+            </details><br>
+
+            <table id="list">
+            </table>
+        </main>
+        <footer>
+            <hr>    
+            <p>Б9123-09.03.04 Ковалёв И.А.</p>
+        </footer>
+    </body>
+
+    <script src="JavaScript/data.js"></script>
+    <script src="JavaScript/table.js"></script>
+    <script src="JavaScript/filter.js"></script>
+    <script src="JavaScript/sort.js"></script>
+    <script src="JavaScript/main.js"></script>
+</html> 

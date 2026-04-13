@@ -1,0 +1,33 @@
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+svg {
+    width: 800px;
+    height: 400px;
+}
+
+svg text {
+    font: 8px Verdana;
+}
+
+svg path, line {
+    fill: none;
+    stroke: #333333;
+    width: 1px;
+}
+
+#tableShower {
+    margin: 10px;
+}
