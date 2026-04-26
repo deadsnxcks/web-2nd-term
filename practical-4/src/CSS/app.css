@@ -1,0 +1,80 @@
+.App table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.App th,
+.App td {
+  border: 1px solid #b0b0b0;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.App th {
+  background-color: #dcdcdc;
+  font-weight: bold;
+  text-align: center;
+}
+
+.App tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: table-row;
+}
+
+.pagination-block {
+  margin-top: 15px;
+  padding-left: 5px;
+}
+
+.pagination-block span {
+  display: inline-block;
+  padding: 5px 8px;
+  margin-right: 5px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.pagination-block span:hover {
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+.pagination-block .active-page {
+  color: #0000ff;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+}
+
+form p {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: inline-block;
+  width: 150px;
+  font-weight: bold;
+}
+
+form input {
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filter-form .number-input {
+  width: 80px; /* Делаем числовые инпуты короткими */
+  margin: 0 10px 0 5px; /* Аккуратные отступы вокруг слов "от" и "до" */
+}
