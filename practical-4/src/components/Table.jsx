@@ -15,12 +15,48 @@ const Table = (props) => {
 
   const [activePage, setActivePage] = useState(1);
 
-  const [resetKey, setResetKey] = useState(0);
+  const [sortState, setSortState] = useState({
+    level1: "",
+    desc1: false,
+    level2: "",
+    desc2: false,
+    level3: "",
+    desc3: false,
+  });
 
-  const handleFullReset = () => {
+  const [filterState, setFilterState] = useState({
+    name: "",
+    author: "",
+    genre: "",
+    country: "",
+    year_min: "",
+    year_max: "",
+    streams_min: "",
+    streams_max: "",
+  });
+
+  const handleClearAll = () => {
     setDataTable(props.data);
-    setActivePage(1);
-    setResetKey((prev) => prev + 1);
+    
+    setSortState({
+      level1: "",
+      desc1: false,
+      level2: "",
+      desc2: false,
+      level3: "",
+      desc3: false,
+    });
+
+    setFilterState({
+      name: "",
+      author: "",
+      genre: "",
+      country: "",
+      year_min: "",
+      year_max: "",
+      streams_min: "",
+      streams_max: "",
+    });
   };
 
   const updateDataTable = (filteredArray) => {
@@ -51,19 +87,21 @@ const Table = (props) => {
     <>
       <h4>Фильтры</h4>
       <Filter
-        key={`filter-${resetKey}`}
         filtering={updateDataTable}
         fullData={props.data}
-        onFullReset={handleFullReset}
+        filterState={filterState}
+        setFilterState={setFilterState}
+        onClearAll={handleClearAll}
       />
 
       <h4>Сортировка</h4>
       <Sort
-        key={`sort-${resetKey}`}
         data={dataTable}
         fullData={props.data}
         sorting={updateDataTable}
-        onFullReset={handleFullReset}
+        sortState={sortState}
+        setSortState={setSortState}
+        onClearAll={handleClearAll}
       />
 
       <table>

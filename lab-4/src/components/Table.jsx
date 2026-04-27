@@ -11,12 +11,21 @@ import { useState } from "react";
 
 const Table = (props) => {
     const [dataTable, setDataTable] = useState(props.data);
-    
-    const [activePage, setActivePage] = useState(1);
+
+    const [activePage, setActivePage] = useState(
+        Math.ceil(props.data.length / props.amountRows)
+    );
 
     const updateDataTable = (filteredArray) => {
         setDataTable(filteredArray); 
-        setActivePage(1);
+        
+        let lastPage = Math.ceil(filteredArray.length / props.amountRows);
+        
+        if (lastPage === 0) {
+            lastPage = 1;
+        }
+        
+        setActivePage(lastPage);
     };
 
     const changeActive = (pageNumber) => {
@@ -26,6 +35,7 @@ const Table = (props) => {
     const amount = props.pagination ? Number(props.amountRows) : dataTable.length;
 
     const n = Math.ceil(dataTable.length / amount); 
+
     const arr = Array.from({ length: n }, (v, i) => i + 1);
     
     const pages = arr.map((item, index) => (
